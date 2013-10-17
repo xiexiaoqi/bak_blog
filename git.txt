@@ -147,6 +147,22 @@ git 配置用户信息
 			
 			取消对文件的修改
 			    git checkout file
+				
+2.1 远程仓库的使用
+        查看远程仓库
+	        git remote (-v) //显示远程仓库，加-v则路径一起显示
+			
+		添加远程仓库
+		    git remote add remote-name git:host
+		
+		从远程仓库抓取数据
+		    git fetch remote-name
+			此命令会到远程仓库中拉取所有你本地仓库中还没有的数据。
+			而且只是拉取文件，不会进行合并
+			
+        推送数据到远程仓库
+		    git push origion master
+			将本地的master分支，推送到origion服务器，（使用clone命令拉取出来的文件默认是使用 origion 和 master 名字的）.
    
    
    
