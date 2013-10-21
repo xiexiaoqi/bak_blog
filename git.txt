@@ -187,14 +187,39 @@ git 配置用户信息
    
    
    
-   
-   
-   
-   
-   
-   
+第三章
 
-   
-=======
-这里是测试的
->>>>>>> whitelake
+3.1 分支
+    在当前版本中重新开辟出来一个新的版本线，对master分支不会有任何影响。到分支后期可以与master进行合并
+	
+	创建分支
+	    git branch name
+	
+	查看分支
+	    git branch
+		
+	删除分支
+	    git push origin --delete name
+		git push origin :name
+	
+	分支切换
+	    git checkout name
+		
+	分支合并
+	    git merge name
+		
+	解决冲突
+	    git mergetool 可以通过vimdiff工具进行异常比对
+		修改完后git status查看，
+	
+	查看已经合并的分支
+	    git branch --merged
+		
+	查看未合并的分支
+	    git branch --no-merged
+
+
+
+
+
+
