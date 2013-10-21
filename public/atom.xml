@@ -14,13 +14,10 @@
 
   
   <entry>
-    
     <title type="html"><![CDATA[Octopress博客配置笔记:1]]></title>
     <link href="http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/"/>
-    
     <updated>2013-10-21T17:26:00+08:00</updated>
     <id>http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1</id>
-    
     <content type="html"><![CDATA[<p><a href="http://octopress.org/" class="fl_left a_unline">
 <img class="insert_img" src="http://xiexiaoqi.github.io/images/post_img/octopress.jpg" title="Octopress" >
 </a>
@@ -162,7 +159,6 @@
 
 <p>Octopress博客配置笔记:1《完》</p>
 ]]></content>
-    
   </entry>
   
 </feed>
