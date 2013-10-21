@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://xiexiaoqi.github.io/atom.xml" rel="self"/>
   <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2013-10-21T22:46:09+08:00</updated>
+  <updated>2013-10-21T22:50:34+08:00</updated>
   <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,153 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress博客配置笔记:1]]></title>
+    <link href="http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/"/>
+    <updated>2013-10-21T17:26:00+08:00</updated>
+    <id>http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1</id>
+    <content type="html"><![CDATA[<p><a href="http://octopress.org/" class="fl_left a_unline">
+<img class="insert_img" src="http://xiexiaoqi.github.io/images/post_img/octopress.jpg" title="Octopress" >
+</a>
+<a href="https://github.com/" class="fl_left a_unline">
+<img class="insert_img" src="http://xiexiaoqi.github.io/images/post_img/github.jpg" title="github" >
+</a></p>
+
+<p class="clear" /></p>
+
+
+<p>安装此博客时，参照了官方的一些说明文档( <a href="http://octopress.org/docs/">octopress</a>、<a href="https://help.github.com/categories/20/articles">github</a> )，外加自己的google。</p>
+
+<!-- more -->
+
+
+<p>
+第一步</p>
+
+<p>安装Octopress 到您的系统。
+我的系统环境为“centos 6.3”。</p>
+
+<p>安装 git</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>yum install git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装Ruby，Ruby版本必须大于1.9.3，不使用Ruby的话可以使用“rbenv 或 RVM.”，在这里我使用的时Ruby。 Octoperss使用yaml格式文件作为配置文件，所以还需要安装libyaml。 先安装 libyaml</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz
+</span><span class='line'>tar xzvf yaml-0.1.4.tar.gz
+</span><span class='line'>cd yaml-0.1.4
+</span><span class='line'>./configure --prefix=/usr/local
+</span><span class='line'>make
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装Ruby</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#使用ftp下载
+</span><span class='line'>lftp ftp.ruby-lang.org
+</span><span class='line'>lftp ftp.ruby-lang.org:/> cd /pub/ruby
+</span><span class='line'>lftp ftp.ruby-lang.org:/pub/ruby>
+</span><span class='line'>lftp ftp.ruby-lang.org:/pub/ruby> get ruby-1.9.3.pXXX.tar.gz  # 选择合适的版本下载
+</span><span class='line'>lftp ftp.ruby-lang.org:/pub/ruby> exit
+</span><span class='line'>#编辑安装
+</span><span class='line'>tar zxvf ruby-1.9.3.pXXX.tar.gz
+</span><span class='line'>cd ruby-1.9.3.pXXX
+</span><span class='line'>./configure --prefix=/usr/local --enable-shared --disable-install-doc --with-opt-dir=/usr/local/lib
+</span><span class='line'>make
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装Octopress</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>cd octopress
+</span><span class='line'>
+</span><span class='line'># 安装相关依赖
+</span><span class='line'>gem install bundler
+</span><span class='line'>bundle install
+</span><span class='line'>
+</span><span class='line'># 安装默认主题
+</span><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>到这里Otopress就安装好了。</p>
+
+<p>第二步</p>
+
+<p>配置您的github</p>
+
+<p>登录github，github为每个用户提供一个个人主页，为每每个项目提供一个项目主页。这些都是只能是静态HTML文件的。 进去后您会看到类似于“yourname.github.io”这样的一个字样，和您创建的项目列在一起，点击链接进去。 可以参考这个页面，从第一步到第六步。 这样直接访问“yourname.github.io”，就可以看到您刚才设置的那套模板了！我们就是利用这一种方式来搭建一个速度可观，无限流量的blog。</p>
+
+<p>生成SSH keys</p>
+
+<p>当您提交代码到您的github时，git是需要权限验证的。所以您需要用您注册时所使用的email来生成一个唯一的SSH keys，并为这设置密码。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa -C "your_email@example.com"
+</span><span class='line'># Creates a new ssh key, using the provided email as a label
+</span><span class='line'># Generating public/private rsa key pair.
+</span><span class='line'># 直接回车，将文件存放在用户目录
+</span><span class='line'># Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]
+</span><span class='line'>ssh-add id_rsa
+</span><span class='line'>
+</span><span class='line'># 输入密码
+</span><span class='line'>Enter passphrase (empty for no passphrase): [Type a passphrase]
+</span><span class='line'># Enter same passphrase again: [Type passphrase again]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将生成的key复制到您的github账户</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~/.ssh
+</span><span class='line'>vi id_rsa.pub
+</span><span class='line'># 显示类似于这样的字符：ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu2PxN9ft1wdaFaMcQJbS+MOTKsEJ6nU....</span></code></pre></td></tr></table></div></figure>
+
+
+<p>添加操作”Account settings &ndash;> SSH Keys &ndash;> Add SSH key”，完成添加。</p>
+
+<p>Octopress博客配置笔记:1《完》</p>
+]]></content>
+  </entry>
   
 </feed>
