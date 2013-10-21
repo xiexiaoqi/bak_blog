@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: GitHub - 小旋风</title>
+  <title>PHP类中成员属性赋值 - 小旋风</title>
   <meta name="author" content="谢小琪">
 
   
-  <meta name="description" content="Category: GitHub">
+  <meta name="description" content="在PHP类中给成员属性赋值只能赋常数值，如果你尝试给成员属性赋一个表达式如：time();那么将会报错。
+根据官方解释为：&#8221;属性中的变量可以初始化，但是初始化的值必须是常数，这里的常数是指php脚本在编译阶段时就为常数，而不是在编译阶段之后在运行阶段运算出的常数。&#8221; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xiexiaoqi.github.ioblog/categories/github">
+  <link rel="canonical" href="http://xiexiaoqi.github.io/blog/2013/10/22/phplei-zhong-cheng-yuan-shu-xing-fu-zhi">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="小旋风" type="application/atom+xml">
@@ -64,36 +65,105 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: GitHub</h1>
+    
+      <h1 class="entry-title">PHP类中成员属性赋值</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-22T01:51:00+08:00" pubdate data-updated="true">Oct 22<span>nd</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>在PHP类中给成员属性赋值只能赋常数值，如果你尝试给成员属性赋一个表达式如：time();那么将会报错。
+根据官方解释为：&#8221;属性中的变量可以初始化，但是初始化的值必须是常数，这里的常数是指php脚本在编译阶段时就为常数，而不是在编译阶段之后在运行阶段运算出的常数。&#8221;</p>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/">Octopress博客配置笔记:1</a></h1>
-<time datetime="2013-10-21T17:26:00+08:00" pubdate><span class='month'>Oct</span> <span class='day'>21</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/centos/'>CentOS</a>, <a class='category' href='/blog/categories/github/'>GitHub</a>, <a class='category' href='/blog/categories/octopress-blog/'>Octopress Blog</a></span>
-</footer>
-
-
-</article>
-
+<p>这里time()就是个表达式, 变量同样也是个表达式, 所以会报错。</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">谢小琪</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-22T01:51:00+08:00" pubdate data-updated="true">Oct 22<span>nd</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/22/urltong-guo-get-chuan-shu-zu-lei-xing-can-shu/" title="Previous Post: url通过GET[]传数组类型参数">&laquo; url通过GET[]传数组类型参数</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title=""></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xiexiaoqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
 
 
 </div>

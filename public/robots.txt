@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://mrzhang.me/sitemap.xml 
+Sitemap: http://xiexiaoqi.github.io/sitemap.xml 

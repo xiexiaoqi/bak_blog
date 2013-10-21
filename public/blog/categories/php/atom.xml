@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: PHP | 小旋风]]></title>
-  <link href="http://mrzhang.me/blog/categories/php/atom.xml" rel="self"/>
-  <link href="http://mrzhang.me/"/>
-  <updated>2013-10-22T01:06:33+08:00</updated>
-  <id>http://mrzhang.me/</id>
+  <link href="http://xiexiaoqi.github.io/blog/categories/php/atom.xml" rel="self"/>
+  <link href="http://xiexiaoqi.github.io/"/>
+  <updated>2013-10-22T01:56:25+08:00</updated>
+  <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
     
@@ -14,10 +14,35 @@
 
   
   <entry>
+    <title type="html"><![CDATA[PHP类中成员属性赋值]]></title>
+    <link href="http://xiexiaoqi.github.io/blog/2013/10/22/phplei-zhong-cheng-yuan-shu-xing-fu-zhi/"/>
+    <updated>2013-10-22T01:51:00+08:00</updated>
+    <id>http://xiexiaoqi.github.io/blog/2013/10/22/phplei-zhong-cheng-yuan-shu-xing-fu-zhi</id>
+    <content type="html"><![CDATA[<p>在PHP类中给成员属性赋值只能赋常数值，如果你尝试给成员属性赋一个表达式如：time();那么将会报错。
+根据官方解释为："属性中的变量可以初始化，但是初始化的值必须是常数，这里的常数是指php脚本在编译阶段时就为常数，而不是在编译阶段之后在运行阶段运算出的常数。"</p>
+
+<p>这里time()就是个表达式, 变量同样也是个表达式, 所以会报错。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[url通过GET[]传数组类型参数]]></title>
+    <link href="http://xiexiaoqi.github.io/blog/2013/10/22/urltong-guo-get-chuan-shu-zu-lei-xing-can-shu/"/>
+    <updated>2013-10-22T01:49:00+08:00</updated>
+    <id>http://xiexiaoqi.github.io/blog/2013/10/22/urltong-guo-get-chuan-shu-zu-lei-xing-can-shu</id>
+    <content type="html"><![CDATA[<p>由于通过get提交的参数是无法提交数组的，所以只能将数组格式化为字符串再提交。而之后会遇一个问题，就是在url中，如果所提交的参数含有空格，引号之类的特殊符号就会被默认转义，那么在后台通过$_GET[]直接获取，直接在浏览器打印出来，看到的结果是你想要的，如果查看源代码那么你会发现类似这样的字符串#039;artist#039;“#039;”是"&lsquo;&ldquo;号的转义。
+所以这样的值是无效的。</p>
+
+<p>解决方法：
+在将字符串传入url之前通过urlencode()方法将字符串编码，然后在取得值时，通过urldecode解码。这样就得到了您想要的了！</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[PHP SPL库列表]]></title>
-    <link href="http://mrzhang.me/blog/2013/10/22/php-splku-lie-biao/"/>
+    <link href="http://xiexiaoqi.github.io/blog/2013/10/22/php-splku-lie-biao/"/>
     <updated>2013-10-22T00:51:00+08:00</updated>
-    <id>http://mrzhang.me/blog/2013/10/22/php-splku-lie-biao</id>
+    <id>http://xiexiaoqi.github.io/blog/2013/10/22/php-splku-lie-biao</id>
     <content type="html"><![CDATA[<p>经常在一些PHP框架中看到有关于SPL库的使用，所以自己就在网搜了一些资料了解了一下。
 只是给自己整理的，方便以后查阅！</p>
 
@@ -54,9 +79,9 @@
   
   <entry>
     <title type="html"><![CDATA[PHP SPL库尝试:DirectoryIterator类]]></title>
-    <link href="http://mrzhang.me/blog/2013/10/22/php-splku-chang-shi-directoryiteratorlei/"/>
+    <link href="http://xiexiaoqi.github.io/blog/2013/10/22/php-splku-chang-shi-directoryiteratorlei/"/>
     <updated>2013-10-22T00:10:00+08:00</updated>
-    <id>http://mrzhang.me/blog/2013/10/22/php-splku-chang-shi-directoryiteratorlei</id>
+    <id>http://xiexiaoqi.github.io/blog/2013/10/22/php-splku-chang-shi-directoryiteratorlei</id>
     <content type="html"><![CDATA[<p>以往如果我们要遍历一个目录下的文件，包括子目录，一般是使用PHP Directory 函数，如下面这个方法，但是如果你还想获得目录下文件的信息，就还得费一些手段了。</p>
 
 <!--more-->
