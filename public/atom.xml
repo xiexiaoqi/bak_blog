@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[小旋风]]></title>
-  <link href="http://xiexiaoqi.github.io/atom.xml" rel="self"/>
-  <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2013-10-21T18:11:07+08:00</updated>
-  <id>http://xiexiaoqi.github.io/</id>
+  <link href="http://mrzhang.me/atom.xml" rel="self"/>
+  <link href="http://mrzhang.me/"/>
+  <updated>2013-10-21T18:22:48+08:00</updated>
+  <id>http://mrzhang.me/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
     
@@ -15,14 +15,14 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress博客配置笔记:1]]></title>
-    <link href="http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/"/>
+    <link href="http://mrzhang.me/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/"/>
     <updated>2013-10-21T17:26:00+08:00</updated>
-    <id>http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1</id>
+    <id>http://mrzhang.me/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1</id>
     <content type="html"><![CDATA[<p><a href="http://octopress.org/" class="fl_left a_unline">
-<img class="insert_img" src="http://xiexiaoqi.github.io/images/post_img/octopress.jpg" title="Octopress" >
+<img class="insert_img" src="http://mrzhang.me/images/post_img/octopress.jpg" title="Octopress" >
 </a>
 <a href="https://github.com/" class="fl_left a_unline">
-<img class="insert_img" src="http://xiexiaoqi.github.io/images/post_img/github.jpg" title="github" >
+<img class="insert_img" src="http://mrzhang.me/images/post_img/github.jpg" title="github" >
 </a></p>
 
 <p class="clear" /></p>

@@ -87,6 +87,22 @@ body {
     padding-top: $header-padding-top;
     padding-bottom: $header-padding-bottom;
   }
+  .fl_left{
+    float: left;
+  }
+  .fl_right{
+    float: right;
+  }
+  .clear{
+    clear: both;
+  }
+  .a_unline{
+    text-decoration: none;
+  }
+  .insert_img {
+    height: 250px;
+    width: 300px;
+  }
 }
 
 #content {
