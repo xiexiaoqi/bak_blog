@@ -48,8 +48,6 @@ body {
   max-width: $max-width;
   position: relative;
   margin: 0 auto;
-  font-family: "PT Sans","Helvetica Neue",Arial,sans-serif !important;
-  font-size: 1em;
   > header, > nav, > footer, #content > article, #content > div > article, #content > div > section {
     @extend .group;
     padding-left: $pad-min;
@@ -88,22 +86,6 @@ body {
     font-size: $header-font-size;
     padding-top: $header-padding-top;
     padding-bottom: $header-padding-bottom;
-  }
-  .clear{
-    clear: both;
-  }
-  .fl_left {
-	float: left;
-  }
-  .fl_right {
-    float: right;
-  }
-  .a_unline {
-	text-decoration: none;
-   }
-  .insert_img {
-	width: 300px;
-	height: 250px;
   }
 }
 
