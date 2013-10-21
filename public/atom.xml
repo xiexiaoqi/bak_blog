@@ -4,7 +4,7 @@
   <title><![CDATA[小旋风]]></title>
   <link href="http://mrzhang.me/atom.xml" rel="self"/>
   <link href="http://mrzhang.me/"/>
-  <updated>2013-10-21T23:26:20+08:00</updated>
+  <updated>2013-10-22T01:06:33+08:00</updated>
   <id>http://mrzhang.me/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
@@ -12,6 +12,170 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP SPL库列表]]></title>
+    <link href="http://mrzhang.me/blog/2013/10/22/php-splku-lie-biao/"/>
+    <updated>2013-10-22T00:51:00+08:00</updated>
+    <id>http://mrzhang.me/blog/2013/10/22/php-splku-lie-biao</id>
+    <content type="html"><![CDATA[<p>经常在一些PHP框架中看到有关于SPL库的使用，所以自己就在网搜了一些资料了解了一下。
+只是给自己整理的，方便以后查阅！</p>
+
+<!--more-->
+
+
+<p>Iterator接口，可以把对象当做数组一样进行循环操作</p>
+
+<p>ArrayAccess界面，可以使对象像数组一下进么操作，如：增加，删除,但不能进行遍历</p>
+
+<p>IteratorAggregate接口， 针对上面两种进行的中和，</p>
+
+<p>RecursiveIterator 接口，遍历多层数据</p>
+
+<p>Countable 接口，返回集的数量</p>
+
+<p>DirectoryIterator 类，查看目录中的所以文件和子目录</p>
+
+<p>ArrayObject类，将Array转化为object//没有遍历功能</p>
+
+<p>ArrayIterator类，为ArrayObject提供遍历功能</p>
+
+<p>FilterIterator类，可以对元素进行过滤，在accept()方法中设置过滤条件</p>
+
+<p>SimpleXMLIterator类，遍历xml文件</p>
+
+<p>CachingIterator类，这个类有hasNext()方法，用来判断是否还有下一个元素</p>
+
+<p>LimitIterator类，限定返回结果集的数量和位置</p>
+
+<p>SplFileObject类，对文本文件进行遍历</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP SPL库尝试:DirectoryIterator类]]></title>
+    <link href="http://mrzhang.me/blog/2013/10/22/php-splku-chang-shi-directoryiteratorlei/"/>
+    <updated>2013-10-22T00:10:00+08:00</updated>
+    <id>http://mrzhang.me/blog/2013/10/22/php-splku-chang-shi-directoryiteratorlei</id>
+    <content type="html"><![CDATA[<p>以往如果我们要遍历一个目录下的文件，包括子目录，一般是使用PHP Directory 函数，如下面这个方法，但是如果你还想获得目录下文件的信息，就还得费一些手段了。</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>遍历目录一般做法 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">list_dir</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$dir_handle</span> <span class="o">=</span> <span class="nb">opendir</span><span class="p">(</span><span class="nv">$path</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$ret_arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="nv">$dir_read</span> <span class="o">=</span> <span class="nb">readdir</span><span class="p">(</span><span class="nv">$dir_handle</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="nv">$dir_read</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span> <span class="o">||</span> <span class="nv">$dir_read</span> <span class="o">==</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</span><span class='line'>                <span class="k">continue</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$dir_read</span><span class="p">))</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="nv">$ret_arr</span><span class="p">[</span><span class="nv">$path</span><span class="p">][</span><span class="nv">$dir_read</span><span class="p">]</span> <span class="o">=</span> <span class="nx">list_dir</span><span class="p">(</span><span class="nv">$path</span><span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="nv">$dir_read</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="k">else</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="nv">$ret_arr</span><span class="p">[</span><span class="nv">$path</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$dir_read</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$ret_arr</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用SPL类库中的DirectoryIterator类，它可以以一种操作类属性的方式来取得关于文件的一些属性，下面也看一上使用了DirectoryIterator写的遍历目录的方法。</p>
+
+<figure class='code'><figcaption><span>使用DirectoryIterator类做法 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">list_dir</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$ret_array</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">foreach</span><span class="p">(</span> <span class="k">new</span> <span class="nx">DirectoryIterator</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$keys</span> <span class="o">=&gt;</span> <span class="nv">$files</span> <span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span> <span class="nv">$files</span><span class="o">-&gt;</span><span class="na">isDot</span><span class="p">()</span> <span class="p">)</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="k">continue</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nv">$fileName</span> <span class="o">=</span> <span class="nv">$files</span><span class="o">-&gt;</span><span class="na">getFilename</span><span class="p">();</span>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span> <span class="nv">$files</span><span class="o">-&gt;</span><span class="na">getType</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;dir&#39;</span> <span class="p">)</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="nv">$ret_array</span><span class="p">[</span><span class="nv">$fileName</span><span class="p">]</span> <span class="o">=</span> <span class="nx">list_dir</span><span class="p">(</span><span class="nv">$path</span><span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="nv">$fileName</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="k">else</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="nv">$ret_array</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$fileName</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$ret_array</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可用到关于文件检测的方法如：isReadable(); isFile(); isDir(); isDir()&hellip;.具体方法，
+请参考SPL.php文件，或<a href="http://www.php.net/manual/en/directoryiterator.construct.php">http://www.php.net/manual/en/directoryiterator.construct.php</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress博客配置笔记:1]]></title>
