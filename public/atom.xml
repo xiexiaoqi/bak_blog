@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://xiexiaoqi.github.io/atom.xml" rel="self"/>
-  <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2013-10-21T22:50:34+08:00</updated>
-  <id>http://xiexiaoqi.github.io/</id>
+  <title><![CDATA[小旋风]]></title>
+  <link href="http://mrzhang.me/atom.xml" rel="self"/>
+  <link href="http://mrzhang.me/"/>
+  <updated>2013-10-21T23:26:20+08:00</updated>
+  <id>http://mrzhang.me/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[谢小琪]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,14 +15,14 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress博客配置笔记:1]]></title>
-    <link href="http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/"/>
+    <link href="http://mrzhang.me/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/"/>
     <updated>2013-10-21T17:26:00+08:00</updated>
-    <id>http://xiexiaoqi.github.io/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1</id>
+    <id>http://mrzhang.me/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1</id>
     <content type="html"><![CDATA[<p><a href="http://octopress.org/" class="fl_left a_unline">
-<img class="insert_img" src="http://xiexiaoqi.github.io/images/post_img/octopress.jpg" title="Octopress" >
+<img class="insert_img" src="http://mrzhang.me/images/post_img/octopress.jpg" title="Octopress" >
 </a>
 <a href="https://github.com/" class="fl_left a_unline">
-<img class="insert_img" src="http://xiexiaoqi.github.io/images/post_img/github.jpg" title="github" >
+<img class="insert_img" src="http://mrzhang.me/images/post_img/github.jpg" title="github" >
 </a></p>
 
 <p class="clear" /></p>
@@ -100,6 +100,9 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
 </span><span class='line'>cd octopress
 </span><span class='line'>
@@ -108,7 +111,10 @@
 </span><span class='line'>bundle install
 </span><span class='line'>
 </span><span class='line'># 安装默认主题
-</span><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>rake install
+</span><span class='line'>
+</span><span class='line'>#设置您的github链接(http://username.github.io)，当用在rake deploy时，octopress知道要将源码提交到哪
+</span><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
 
 
 <p>到这里Otopress就安装好了。</p>
@@ -117,7 +123,7 @@
 
 <p>配置您的github</p>
 
-<p>登录github，github为每个用户提供一个个人主页，为每每个项目提供一个项目主页。这些都是只能是静态HTML文件的。 进去后您会看到类似于“yourname.github.io”这样的一个字样，和您创建的项目列在一起，点击链接进去。 可以参考这个页面，从第一步到第六步。 这样直接访问“yourname.github.io”，就可以看到您刚才设置的那套模板了！我们就是利用这一种方式来搭建一个速度可观，无限流量的blog。</p>
+<p>登录github，github为每个用户提供一个个人主页，为每每个项目提供一个项目主页。这些都是只能是静态HTML文件的。 进去后您会看到类似于“yourname.github.io”这样的一个字样，和您创建的项目列在一起，点击链接进去。 可以参考这个<a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator" target="_blank">页面</a>，从第一步到第六步。 这样直接访问“yourname.github.io”，就可以看到您刚才设置的那套模板了！我们就是利用这一种方式来搭建一个速度可观，无限流量的blog。</p>
 
 <p>生成SSH keys</p>
 
@@ -156,6 +162,16 @@
 
 
 <p>添加操作”Account settings &ndash;> SSH Keys &ndash;> Add SSH key”，完成添加。</p>
+
+<p>测试连接是否正常</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T git@github.com
+</span><span class='line'>#输入密码后，当看到显示下面的字符时，说明连接成功
+</span><span class='line'>#Hi yourname! You've successfully authenticated, but GitHub does not provide shell access.</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Octopress博客配置笔记:1《完》</p>
 ]]></content>
