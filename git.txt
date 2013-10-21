@@ -163,6 +163,27 @@ git 配置用户信息
         推送数据到远程仓库
 		    git push origion master
 			将本地的master分支，推送到origion服务器，（使用clone命令拉取出来的文件默认是使用 origion 和 master 名字的）.
+			
+		打标签
+		    给某个时间段提交的版本打上一个标签，如经常看到的版本v1.0。。
+		    
+			查看标签
+			    git tag
+			按照模式搜索标签
+			    git tag -l 'v1*'
+			标签分两种：轻标签、含附注标签。
+			    添加轻标签：git tag tag_name
+			   
+			    默认情况下标签不会commit到版本，如果要添加则
+			        git push origin tag_name
+				一次性添加全部标签
+                    git push origin --tag				
+			
+2.7 技巧和窍门
+    自动补全
+        如果你用的是 Bash shell，可以试试看 Git 提供的自动补全脚本。下载 Git 的源代码，进入 contrib/completion 目录，会看到一个 git-completion.bash 文件。将此文件复制到你自己的用户主目录中（译注：按照下面的示例，还应改名加上点：cp git-completion.bash ~/.git-completion.bash），
+		并把下面一行内容添加到你的 .bashrc 文件中：
+            source ~/.git-completion.bash
    
    
    
