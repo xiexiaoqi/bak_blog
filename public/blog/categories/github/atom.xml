@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: GitHub | 小旋风]]></title>
+  <link href="http://mrzhang.me/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://mrzhang.me/"/>
+  <updated>2013-10-21T23:26:20+08:00</updated>
+  <id>http://mrzhang.me/</id>
+  <author>
+    <name><![CDATA[谢小琪]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress博客配置笔记:1]]></title>
+    <link href="http://mrzhang.me/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1/"/>
+    <updated>2013-10-21T17:26:00+08:00</updated>
+    <id>http://mrzhang.me/blog/2013/10/21/octopressbo-ke-pei-zhi-bi-ji-1</id>
+    <content type="html"><![CDATA[<p><a href="http://octopress.org/" class="fl_left a_unline">
+<img class="insert_img" src="/images/post_img/octopress.jpg" title="Octopress" >
+</a>
+<a href="https://github.com/" class="fl_left a_unline">
+<img class="insert_img" src="/images/post_img/github.jpg" title="github" >
+</a></p>
+
+<p class="clear" /></p>
+
+
+<p>安装此博客时，参照了官方的一些说明文档( <a href="http://octopress.org/docs/">octopress</a>、<a href="https://help.github.com/categories/20/articles">github</a> )，外加自己的google。</p>
+
+<!-- more -->
+
+
+<p>
+第一步</p>
+
+<p>安装Octopress 到您的系统。
+我的系统环境为“centos 6.3”。</p>
+
+<p>安装 git
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>yum install git</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>安装Ruby，Ruby版本必须大于1.9.3，不使用Ruby的话可以使用“rbenv 或 RVM.”，在这里我使用的时Ruby。 Octoperss使用yaml格式文件作为配置文件，所以还需要安装libyaml。 先安装 libyaml
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget &lt;a href="http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz">http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz&lt;/a>
+</span><span class='line'>tar xzvf yaml-0.1.4.tar.gz
+</span><span class='line'>cd yaml-0.1.4
+</span><span class='line'>./configure &mdash;prefix=/usr/local
+</span><span class='line'>make
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>安装Ruby
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>使用ftp下载&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>lftp ftp.ruby-lang.org
+</span><span class='line'>lftp ftp.ruby-lang.org:/> cd /pub/ruby
+</span><span class='line'>lftp ftp.ruby-lang.org:/pub/ruby>
+</span><span class='line'>lftp ftp.ruby-lang.org:/pub/ruby> get ruby-1.9.3.pXXX.tar.gz  # 选择合适的版本下载
+</span><span class='line'>lftp ftp.ruby-lang.org:/pub/ruby> exit&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>编辑安装&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>tar zxvf ruby-1.9.3.pXXX.tar.gz
+</span><span class='line'>cd ruby-1.9.3.pXXX
+</span><span class='line'>./configure &mdash;prefix=/usr/local &mdash;enable-shared &mdash;disable-install-doc &mdash;with-opt-dir=/usr/local/lib
+</span><span class='line'>make
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>安装Octopress
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>cd octopress&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>安装相关依赖&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>gem install bundler
+</span><span class='line'>bundle install&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>安装默认主题&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>rake install&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>设置您的github链接(&lt;a href="http://username.github.io">http://username.github.io&lt;/a>)，当用在rake deploy时，octopress知道要将源码提交到哪&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>rake setup_github_pages</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>到这里Otopress就安装好了。</p>
+
+<p>第二步</p>
+
+<p>配置您的github</p>
+
+<p>登录github，github为每个用户提供一个个人主页，为每每个项目提供一个项目主页。这些都是只能是静态HTML文件的。 进去后您会看到类似于“yourname.github.io”这样的一个字样，和您创建的项目列在一起，点击链接进去。 可以参考这个<a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator" target="_blank">页面</a>，从第一步到第六步。 这样直接访问“yourname.github.io”，就可以看到您刚才设置的那套模板了！我们就是利用这一种方式来搭建一个速度可观，无限流量的blog。</p>
+
+<p>生成SSH keys</p>
+
+<p>当您提交代码到您的github时，git是需要权限验证的。所以您需要用您注册时所使用的email来生成一个唯一的SSH keys，并为这设置密码。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa -C &ldquo;&lt;a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#121;&#111;&#x75;&#114;&#95;&#x65;&#x6d;&#97;&#x69;&#x6c;&#64;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#121;&#x6f;&#117;&#x72;&#x5f;&#x65;&#109;&#97;&#105;&#108;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#109;&lt;/a>&rdquo;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>Creates a new ssh key, using the provided email as a label&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>Generating public/private rsa key pair.&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>直接回车，将文件存放在用户目录&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>ssh-add id_rsa&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>输入密码&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Enter passphrase (empty for no passphrase): [Type a passphrase]&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>Enter same passphrase again: [Type passphrase again]&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>将生成的key复制到您的github账户
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~/.ssh
+</span><span class='line'>vi id_rsa.pub&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>显示类似于这样的字符：ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu2PxN9ft1wdaFaMcQJbS+MOTKsEJ6nU&hellip;.&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
+添加操作”Account settings &ndash;> SSH Keys &ndash;> Add SSH key”，完成添加。</p>
+
+<p>测试连接是否正常
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T &lt;a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;&lt;/a>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>输入密码后，当看到显示下面的字符时，说明连接成功&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>Hi yourname! You&rsquo;ve successfully authenticated, but GitHub does not provide shell access.&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Octopress博客配置笔记:1《完》</p>
+]]></content>
+  </entry>
+  
+</feed>
