@@ -65,3 +65,4 @@ categories: [PHP]
 可用到关于文件检测的方法如：isReadable(); isFile(); isDir(); isDir()....具体方法，
 请参考SPL.php文件，或http://www.php.net/manual/en/directoryiterator.construct.php
 
+【完】

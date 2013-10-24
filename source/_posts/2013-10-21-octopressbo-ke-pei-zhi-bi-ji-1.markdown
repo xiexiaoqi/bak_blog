@@ -107,8 +107,9 @@ ssh -T git@github.com
 #Hi yourname! You've successfully authenticated, but GitHub does not provide shell access.
 {% endcodeblock %}
 
+Octopress博客配置笔记:1
 
-Octopress博客配置笔记:1《完》
+【完】
 
 
 

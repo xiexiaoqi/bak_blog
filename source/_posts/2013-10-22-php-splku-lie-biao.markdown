@@ -35,3 +35,5 @@ CachingIterator类，这个类有hasNext()方法，用来判断是否还有下�
 LimitIterator类，限定返回结果集的数量和位置
  
 SplFileObject类，对文本文件进行遍历
+
+【完】

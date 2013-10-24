@@ -10,3 +10,5 @@ categories: [PHP]
 
 解决方法：
 在将字符串传入url之前通过urlencode()方法将字符串编码，然后在取得值时，通过urldecode解码。这样就得到了您想要的了！
+
+【完】
