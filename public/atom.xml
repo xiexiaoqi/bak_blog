@@ -4,7 +4,7 @@
   <title><![CDATA[小旋风]]></title>
   <link href="http://xiexiaoqi.github.io/atom.xml" rel="self"/>
   <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2013-10-22T01:56:25+08:00</updated>
+  <updated>2013-10-24T23:53:34+08:00</updated>
   <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
@@ -12,6 +12,154 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JS 数组迭代方法]]></title>
+    <link href="http://xiexiaoqi.github.io/blog/2013/10/22/jsshu-zu-die-dai-qi/"/>
+    <updated>2013-10-22T02:18:00+08:00</updated>
+    <id>http://xiexiaoqi.github.io/blog/2013/10/22/jsshu-zu-die-dai-qi</id>
+    <content type="html"><![CDATA[<p>ECMAScripts 5 为数组提供了5个迭代方法，分别为：</p>
+
+<blockquote><p><ul><br/>    <li>every()：对数组中的每一项运行一个函数，如果该函数对每一项都返回true,则返回true。</li><br/>    <li>filter()：对数组中的每一项运行一个函数，返回该函数会返回true的项目组成的数组。</li><br/>    <li>map()：对数组中的每一项运行一个函数，返回每次函数调用的结果 组成的数组。</li><br/>    <li>some()：对数组中的每一项运行一个函数，如果该函数对任一一项返回true,则返回true。。</li><br/>    <li>forEach()：对数组中的每一项运行一个函数，无返回值。</li><br/></ul></p></blockquote>
+
+
+<!--more-->
+
+
+<p>这里的每个方法都接受两个参数：要在每一项上运行的函数；（可选项）运行该函数的作用域对象——影响 this 的值。</p>
+
+<p>传入这些方法中的函数会接受三个参数：数组的项；数组项的索引；数组对象本身。</p>
+
+<p>从上面的方法可以看出根据使用方法的不同，所返回的结果也是不同。</p>
+
+<p>请看以下例子：</p>
+
+<!--every()-->
+
+
+
+
+<figure class='code'><figcaption><span>every() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">everyResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">item</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//一假全假，有点类似于&amp;&amp;运算。</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">everyResult</span> <span class="p">);</span>  <span class="c1">// false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--filter()-->
+
+
+
+
+<figure class='code'><figcaption><span>filter() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">filterResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">item</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//返回符合条件的结果</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">filterResult</span> <span class="p">);</span>  <span class="c1">// 3,4,5,4,3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--map()-->
+
+
+
+
+<figure class='code'><figcaption><span>map() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mapResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//返回执行结果</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">mapResult</span> <span class="p">);</span>  <span class="c1">// 2,4,6,8,10,8,6,4,2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--some()-->
+
+
+
+
+<figure class='code'><figcaption><span>some() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">someResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">item</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//如果有一项符合条件，则返回true</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">someResult</span> <span class="p">);</span>  <span class="c1">// true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--forEach()-->
+
+
+
+
+<figure class='code'><figcaption><span>forEach() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">forEachResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">item</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//无返回值，相当于for循环</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">forEachResult</span> <span class="p">);</span>  <span class="c1">// undefined</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>【完】</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHP类中成员属性赋值]]></title>
@@ -22,6 +170,8 @@
 根据官方解释为：&#8221;属性中的变量可以初始化，但是初始化的值必须是常数，这里的常数是指php脚本在编译阶段时就为常数，而不是在编译阶段之后在运行阶段运算出的常数。&#8221;</p>
 
 <p>这里time()就是个表达式, 变量同样也是个表达式, 所以会报错。</p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   
@@ -35,6 +185,8 @@
 
 <p>解决方法：
 在将字符串传入url之前通过urlencode()方法将字符串编码，然后在取得值时，通过urldecode解码。这样就得到了您想要的了！</p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   
@@ -74,6 +226,8 @@
 <p>LimitIterator类，限定返回结果集的数量和位置</p>
 
 <p>SplFileObject类，对文本文件进行遍历</p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   
@@ -199,6 +353,8 @@
 
 <p>可用到关于文件检测的方法如：isReadable(); isFile(); isDir(); isDir()&hellip;.具体方法，
 请参考SPL.php文件，或<a href="http://www.php.net/manual/en/directoryiterator.construct.php">http://www.php.net/manual/en/directoryiterator.construct.php</a></p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   
@@ -362,7 +518,9 @@
 </span><span class='line'>#Hi yourname! You've successfully authenticated, but GitHub does not provide shell access.</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Octopress博客配置笔记:1《完》</p>
+<p>Octopress博客配置笔记:1</p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   

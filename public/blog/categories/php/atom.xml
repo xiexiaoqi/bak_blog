@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 小旋风]]></title>
   <link href="http://xiexiaoqi.github.io/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2013-10-22T01:56:25+08:00</updated>
+  <updated>2013-10-24T23:53:34+08:00</updated>
   <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
@@ -22,6 +22,8 @@
 根据官方解释为："属性中的变量可以初始化，但是初始化的值必须是常数，这里的常数是指php脚本在编译阶段时就为常数，而不是在编译阶段之后在运行阶段运算出的常数。"</p>
 
 <p>这里time()就是个表达式, 变量同样也是个表达式, 所以会报错。</p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   
@@ -35,6 +37,8 @@
 
 <p>解决方法：
 在将字符串传入url之前通过urlencode()方法将字符串编码，然后在取得值时，通过urldecode解码。这样就得到了您想要的了！</p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   
@@ -74,6 +78,8 @@
 <p>LimitIterator类，限定返回结果集的数量和位置</p>
 
 <p>SplFileObject类，对文本文件进行遍历</p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   
@@ -208,6 +214,8 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 可用到关于文件检测的方法如：isReadable(); isFile(); isDir(); isDir()&hellip;.具体方法，
 请参考SPL.php文件，或<a href="http://www.php.net/manual/en/directoryiterator.construct.php">http://www.php.net/manual/en/directoryiterator.construct.php</a></p>
+
+<p>【完】</p>
 ]]></content>
   </entry>
   

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: JS | 小旋风]]></title>
+  <link href="http://xiexiaoqi.github.io/blog/categories/js/atom.xml" rel="self"/>
+  <link href="http://xiexiaoqi.github.io/"/>
+  <updated>2013-10-24T23:53:34+08:00</updated>
+  <id>http://xiexiaoqi.github.io/</id>
+  <author>
+    <name><![CDATA[谢小琪]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JS 数组迭代方法]]></title>
+    <link href="http://xiexiaoqi.github.io/blog/2013/10/22/jsshu-zu-die-dai-qi/"/>
+    <updated>2013-10-22T02:18:00+08:00</updated>
+    <id>http://xiexiaoqi.github.io/blog/2013/10/22/jsshu-zu-die-dai-qi</id>
+    <content type="html"><![CDATA[<p>ECMAScripts 5 为数组提供了5个迭代方法，分别为：
+<blockquote><p></p></p><p><ul><br/>    <li>every()：对数组中的每一项运行一个函数，如果该函数对每一项都返回true,则返回true。</li><br/>    <li>filter()：对数组中的每一项运行一个函数，返回该函数会返回true的项目组成的数组。</li><br/>    <li>map()：对数组中的每一项运行一个函数，返回每次函数调用的结果 组成的数组。</li><br/>    <li>some()：对数组中的每一项运行一个函数，如果该函数对任一一项返回true,则返回true。。</li><br/>    <li>forEach()：对数组中的每一项运行一个函数，无返回值。</li><br/></ul></p><p><br/><p></p></blockquote></p>
+
+<!--more-->
+
+
+<p>这里的每个方法都接受两个参数：要在每一项上运行的函数；（可选项）运行该函数的作用域对象——影响 this 的值。</p>
+
+<p>传入这些方法中的函数会接受三个参数：数组的项；数组项的索引；数组对象本身。</p>
+
+<p>从上面的方法可以看出根据使用方法的不同，所返回的结果也是不同。</p>
+
+<p>请看以下例子：</p>
+
+<!--every()-->
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>every() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">everyResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="nx">item</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//一假全假，有点类似于&amp;amp;&amp;amp;运算。</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">everyResult</span> <span class="p">);</span>  <span class="c1">// false</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!--filter()-->
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>filter() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">filterResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="nx">item</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//返回符合条件的结果</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">filterResult</span> <span class="p">);</span>  <span class="c1">// 3,4,5,4,3</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!--map()-->
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>map() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">mapResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="nx">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//返回执行结果</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">mapResult</span> <span class="p">);</span>  <span class="c1">// 2,4,6,8,10,8,6,4,2</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!--some()-->
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>some() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">someResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="nx">item</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//如果有一项符合条件，则返回true</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">someResult</span> <span class="p">);</span>  <span class="c1">// true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<!--forEach()-->
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>forEach() </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">forEachResult</span> <span class="o">=</span> <span class="nx">number</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span> <span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="nx">item</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//无返回值，相当于for循环</span>
+</span><span class='line'><span class="nx">alert</span><span class="p">(</span> <span class="nx">forEachResult</span> <span class="p">);</span>  <span class="c1">// undefined</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>【完】</p>
+]]></content>
+  </entry>
+  
+</feed>
