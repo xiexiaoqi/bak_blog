@@ -168,7 +168,7 @@ git 配置用户信息
 			
         推送数据到远程仓库
 		    git push origion master
-			将本地的master分支，推送到origion服务器，（使用clone命令拉取出来的文件默认是使用 origion 和 master 名字的）.
+			将本地的master分支，推送到origion服务器，（使用clone命令拉取出来的文件默认是使用 origion 和 master 名字的）.      
 			
 		打标签
 		    给某个时间段提交的版本打上一个标签，如经常看到的版本v1.0。。
