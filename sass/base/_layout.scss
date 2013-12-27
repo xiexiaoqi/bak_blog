@@ -105,6 +105,10 @@ body {
   }
 }
 
+.left{ float: left; }
+.right{ float: right; }
+.clear{ clear: both; }
+
 #content {
   overflow: hidden;
   > div, > article { width: 100%; }
