@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress Blog | 小旋风]]></title>
   <link href="http://xiexiaoqi.github.io/blog/categories/octopress-blog/atom.xml" rel="self"/>
   <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2013-12-27T15:26:14+08:00</updated>
+  <updated>2013-12-27T15:39:05+08:00</updated>
   <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
@@ -155,7 +155,7 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa -C &ldquo;&lt;a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x79;&#x6f;&#x75;&#114;&#x5f;&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#x6f;&#109;">&#121;&#111;&#117;&#114;&#95;&#x65;&#x6d;&#x61;&#x69;&#x6c;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;&lt;/a>&rdquo;&lt;/p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa -C &ldquo;&lt;a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#58;&#x79;&#111;&#117;&#114;&#x5f;&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#x6f;&#117;&#114;&#x5f;&#101;&#x6d;&#x61;&#x69;&#108;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;&lt;/a>&rdquo;&lt;/p>
 </span><span class='line'>
 </span><span class='line'>&lt;h1>Creates a new ssh key, using the provided email as a label&lt;/h1>
 </span><span class='line'>
@@ -198,7 +198,7 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T &lt;a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;&lt;/a>&lt;/p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T &lt;a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#103;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;&lt;/a>&lt;/p>
 </span><span class='line'>
 </span><span class='line'>&lt;h1>输入密码后，当看到显示下面的字符时，说明连接成功&lt;/h1>
 </span><span class='line'>

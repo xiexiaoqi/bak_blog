@@ -9,7 +9,13 @@
   <meta name="author" content="谢小琪">
 
   
-  <meta name="description" content="ECMAScripts 5 为数组提供了5个迭代方法，分别为： every()：对数组中的每一项运行一个函数，如果该函数对每一项都返回true,则返回true。 filter()：对数组中的每一项运行一个函数，返回该函数会返回true的项目组成的数组。 map()：对数组中的每一项运行一个函数， &hellip;">
+  <meta name="description" content="XHProf是一个PHP性能调试分析工具，在不知道这个工具之前一直使用的是XDebug。
+在使用XDebug时一直很头疼一个问题，就是配置好后它会对整个WEB服务器上的网站进行分析，生成文件。
+无法自定义具体分析哪一个网站。XHProf可又很好的解决这一问题。 安装XHProf 1
+2
+3
+4
+5 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +71,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/27/phpdiao-shi-gong-ju-xhprofan-zhuang-yu-shi-yong/">PHP调试工具XHProf安装与使用</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-27T14:03:00+08:00" pubdate data-updated="true">Dec 27<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>XHProf是一个PHP性能调试分析工具，在不知道这个工具之前一直使用的是XDebug。
+在使用XDebug时一直很头疼一个问题，就是配置好后它会对整个WEB服务器上的网站进行分析，生成文件。
+无法自定义具体分析哪一个网站。XHProf可又很好的解决这一问题。</p>
+
+<p>安装XHProf</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#下载安装文件
+</span><span class='line'>wget http://pecl.php.net/get/xhprof-0.9.4.tgz 
+</span><span class='line'>tar zxf xhprof-0.9.4.tgz
+</span><span class='line'>cd xhprof-0.9.4  
+</span><span class='line'>cd extension  
+</span><span class='line'>phpize  
+</span><span class='line'>./configure  
+</span><span class='line'>make  
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/12/27/phpdiao-shi-gong-ju-xhprofan-zhuang-yu-shi-yong/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -340,6 +413,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/12/27/phpdiao-shi-gong-ju-xhprofan-zhuang-yu-shi-yong/">PHP调试工具XHProf安装与使用</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/10/22/jsshu-zu-die-dai-qi/">JS 数组迭代方法</a>
       </li>
     
@@ -353,10 +430,6 @@
     
       <li class="post">
         <a href="/blog/2013/10/22/php-splku-lie-biao/">PHP SPL库列表</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/10/22/php-splku-chang-shi-directoryiteratorlei/">PHP SPL库尝试:DirectoryIterator类</a>
       </li>
     
   </ul>
