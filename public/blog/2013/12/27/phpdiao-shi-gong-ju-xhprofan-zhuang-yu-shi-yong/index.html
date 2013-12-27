@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PHP调试工具XHProf安装与使用 - 小旋风</title>
+  <meta name="author" content="谢小琪">
+
+  
+  <meta name="description" content="XHProf是一个PHP性能调试分析工具，在不知道这个工具之前一直使用的是XDebug。
+在使用XDebug时一直很头疼一个问题，就是配置好后它会对整个WEB服务器上的网站进行分析，生成文件。
+无法自定义具体分析哪一个网站。XHProf可又很好的解决这一问题。 安装XHProf 1
+2
+3
+4
+5 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xiexiaoqi.github.io/blog/2013/12/27/phpdiao-shi-gong-ju-xhprofan-zhuang-yu-shi-yong">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="小旋风" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">小旋风</a></h1>
+  
+    <h2>写点小代码.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:xiexiaoqi.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">PHP调试工具XHProf安装与使用</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-27T14:03:00+08:00" pubdate data-updated="true">Dec 27<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>XHProf是一个PHP性能调试分析工具，在不知道这个工具之前一直使用的是XDebug。
+在使用XDebug时一直很头疼一个问题，就是配置好后它会对整个WEB服务器上的网站进行分析，生成文件。
+无法自定义具体分析哪一个网站。XHProf可又很好的解决这一问题。</p>
+
+<p>安装XHProf</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#下载安装文件
+</span><span class='line'>wget http://pecl.php.net/get/xhprof-0.9.4.tgz 
+</span><span class='line'>tar zxf xhprof-0.9.4.tgz
+</span><span class='line'>cd xhprof-0.9.4  
+</span><span class='line'>cd extension  
+</span><span class='line'>phpize  
+</span><span class='line'>./configure  
+</span><span class='line'>make  
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<p>
+添加so文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim xhprof.ini
+</span><span class='line'>
+</span><span class='line'>extension=xhprof.so  
+</span><span class='line'>#分析文件存放目录，需要预先创建
+</span><span class='line'>xhprof.output_dir=&lt;directory_for_storing_xhprof_runs></span></code></pre></td></tr></table></div></figure>
+
+
+<p>查看安装结果</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>    <span class="nb">phpinfo</span><span class="p">();</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="/images/post_img/xhprof_info.png" title="phpinfo()" ></p>
+
+<p>将安装目录下的examples,xhprof_html,xhprof_lib复制到站点根目录下。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>examples    一个简单的试例
+</span><span class='line'>xhprof_html 查看分析结果
+</span><span class='line'>xhprof_lib  分析时所用到的库文件</span></code></pre></td></tr></table></div></figure>
+
+
+<p>到这里就已经安装完成了。如何使用可以参照examples/sample.php。</p>
+
+<figure class='code'><figcaption><span>sample.php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">function</span> <span class="nf">bar</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">bar</span><span class="p">(</span><span class="nv">$x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">function</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="nv">$idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$idx</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">bar</span><span class="p">(</span><span class="nv">$idx</span><span class="p">);</span>
+</span><span class='line'>      <span class="nv">$x</span> <span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// 启动 xhprof 性能分析器</span>
+</span><span class='line'>  <span class="nx">xhprof_enable</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// 执行自定义方法</span>
+</span><span class='line'>  <span class="nx">foo</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// 停止 xhprof 分析器</span>
+</span><span class='line'>  <span class="nv">$xhprof_data</span> <span class="o">=</span> <span class="nx">xhprof_disable</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//输入库文件</span>
+</span><span class='line'>  <span class="nv">$XHPROF_ROOT</span> <span class="o">=</span> <span class="nb">realpath</span><span class="p">(</span><span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span> <span class="o">.</span><span class="s1">&#39;/..&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">include_once</span> <span class="nv">$XHPROF_ROOT</span> <span class="o">.</span> <span class="s2">&quot;/xhprof_lib/utils/xhprof_lib.php&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">include_once</span> <span class="nv">$XHPROF_ROOT</span> <span class="o">.</span> <span class="s2">&quot;/xhprof_lib/utils/xhprof_runs.php&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// save raw data for this profiler run using default</span>
+</span><span class='line'>  <span class="c1">// implementation of iXHProfRuns.</span>
+</span><span class='line'>  <span class="nv">$xhprof_runs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XHProfRuns_Default</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// save the run under a namespace &quot;xhprof_foo&quot;</span>
+</span><span class='line'>    <span class="nv">$namespace</span> <span class="o">=</span> <span class="s1">&#39;xhprof_foo&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">//返回run_id,查询结果时使用</span>
+</span><span class='line'>  <span class="nv">$run_id</span> <span class="o">=</span> <span class="nv">$xhprof_runs</span><span class="o">-&gt;</span><span class="na">save_run</span><span class="p">(</span><span class="nv">$xhprof_data</span><span class="p">,</span> <span class="nv">$namespace</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//点击下面的view info 链接，查看具信息</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">echo</span> <span class="s2">&quot;---------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span>
+</span><span class='line'>       <span class="s2">&quot;&lt;a target=&#39;_blank&#39; href = &#39;http://192.168.20.89:8080/xhprof/xhprof_html/index.php?run=</span><span class="si">{</span><span class="nv">$run_id</span><span class="si">}</span><span class="s2">&amp;source=</span><span class="si">{</span><span class="nv">$namespace</span><span class="si">}</span><span class="s2">&#39;&gt;</span>
+</span><span class='line'><span class="s2">      VIEW INFO</span>
+</span><span class='line'><span class="s2">      &lt;/a&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span>
+</span><span class='line'>       <span class="s2">&quot;---------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>默认是以表格形式列出信息，xhprof还提供一种拓扑图的呈现方式。这个方式需要安装Graphviz画图工具。
+此工具需要先安装libpng，如果没有装这个库则 执行时可能会把类似“png格式错误”这类的错误。</p>
+
+<p>安装 libpng</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#下载libpng-1.5.17
+</span><span class='line'>wget http://jaist.dl.sourceforge.net/project/libpng/libpng15/1.5.17/libpng-1.5.17.tar.gz
+</span><span class='line'>tar -zxvf libpng-1.5.17.tar.gz
+</span><span class='line'>cd libpng-1.5.17 
+</span><span class='line'>./configure  
+</span><span class='line'>make  
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装 Graphviz</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#下载graphviz-2.24.0
+</span><span class='line'>wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz  
+</span><span class='line'>tar zxf graphviz-2.24.0.tar.gz  
+</span><span class='line'>cd graphviz-2.24.0  
+</span><span class='line'>./configure  --with-png=yes
+</span><span class='line'>make  
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装完成后，可以在结果列表页点击 [View Full Callgraph] 查看拓扑图
+结果如下
+<a href = "/images/post_img/xhprof_info_table.png" title = 'table' class = 'fl_left'>
+<img src="/images/post_img/xhprof_info_table.png" width="300">
+</a>
+<a href = "/images/post_img/xhprof_info_png.png" title = 'png' class = 'fl_left'>
+<img src="/images/post_img/xhprof_info_png.png" width="300">
+</a></p>
+
+<p class = 'clear'></p>
+
+
+<p>参考链接：</p>
+
+<p><a href="http://www.php.net/manual/zh/book.xhprof.php">http://www.php.net/manual/zh/book.xhprof.php</a></p>
+
+<p>PHP调试工具XHProf安装与使用</p>
+
+<p>【完】</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">谢小琪</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-27T14:03:00+08:00" pubdate data-updated="true">Dec 27<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/22/jsshu-zu-die-dai-qi/" title="Previous Post: JS 数组迭代方法">&laquo; JS 数组迭代方法</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/27/phpdiao-shi-gong-ju-xhprofan-zhuang-yu-shi-yong/">PHP调试工具XHProf安装与使用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/22/jsshu-zu-die-dai-qi/">JS 数组迭代方法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/22/phplei-zhong-cheng-yuan-shu-xing-fu-zhi/">PHP类中成员属性赋值</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/22/urltong-guo-get-chuan-shu-zu-lei-xing-can-shu/">url通过GET[]传数组类型参数</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/22/php-splku-lie-biao/">PHP SPL库列表</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+<h1>Recent Comments</h1>
+<ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="18"></ul>
+
+</section>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 谢小琪 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
