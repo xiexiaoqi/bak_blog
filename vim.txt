@@ -134,3 +134,5 @@ language messages zh_cn.utf-8
     文件对比
     :sp files : 对应要打开的文件，为空的话就是打开当前文件
     ctrl + w  : 窗口切换
+
+    测试添加 
