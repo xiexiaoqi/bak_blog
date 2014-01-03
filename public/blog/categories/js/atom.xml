@@ -4,7 +4,7 @@
   <title><![CDATA[Category: JS | 小旋风]]></title>
   <link href="http://xiexiaoqi.github.io/blog/categories/js/atom.xml" rel="self"/>
   <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2013-12-27T16:04:05+08:00</updated>
+  <updated>2014-01-03T17:49:11+08:00</updated>
   <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
@@ -18,8 +18,18 @@
     <link href="http://xiexiaoqi.github.io/blog/2013/10/22/jsshu-zu-die-dai-qi/"/>
     <updated>2013-10-22T02:18:00+08:00</updated>
     <id>http://xiexiaoqi.github.io/blog/2013/10/22/jsshu-zu-die-dai-qi</id>
-    <content type="html"><![CDATA[<p>ECMAScripts 5 为数组提供了5个迭代方法，分别为：
-<blockquote><p></p></p><p><ul><br/>    <li>every()：对数组中的每一项运行一个函数，如果该函数对每一项都返回true,则返回true。</li><br/>    <li>filter()：对数组中的每一项运行一个函数，返回该函数会返回true的项目组成的数组。</li><br/>    <li>map()：对数组中的每一项运行一个函数，返回每次函数调用的结果 组成的数组。</li><br/>    <li>some()：对数组中的每一项运行一个函数，如果该函数对任一一项返回true,则返回true。。</li><br/>    <li>forEach()：对数组中的每一项运行一个函数，无返回值。</li><br/></ul></p><p><br/><p></p></blockquote></p>
+    <content type="html"><![CDATA[<p>ECMAScripts 5 为数组提供了5个迭代方法，分别为：</p>
+
+<pre><code>every()：对数组中的每一项运行一个函数，如果该函数对每一项都返回true,则返回true。
+
+filter()：对数组中的每一项运行一个函数，返回该函数会返回true的项目组成的数组。
+
+map()：对数组中的每一项运行一个函数，返回每次函数调用的结果 组成的数组。
+
+some()：对数组中的每一项运行一个函数，如果该函数对任一一项返回true,则返回true。。
+
+forEach()：对数组中的每一项运行一个函数，无返回值。
+</code></pre>
 
 <!--more-->
 

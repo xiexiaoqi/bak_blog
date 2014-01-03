@@ -3,7 +3,7 @@ layout: post
 title: "Octopress博客配置笔记:1"
 date: 2013-10-21 17:26
 comments: true
-categories: [CentOS, Octopress Blog, GitHub]
+categories: [Linux, CentOS, Octopress Blog, GitHub]
 ---
 <a href="http://octopress.org/" class="fl_left a_unline">
 {% img insert_img /images/post_img/octopress.jpg Octopress %}
