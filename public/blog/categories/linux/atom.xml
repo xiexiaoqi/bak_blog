@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | 小旋风]]></title>
   <link href="http://xiexiaoqi.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2014-01-03T17:49:11+08:00</updated>
+  <updated>2014-01-11T14:05:43+08:00</updated>
   <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
@@ -71,7 +71,7 @@ N     : 向相反方向搜索
 
 <pre><code>:s/word1/word2/gc : 查找与替换
 :n1,n2s/word1/word2/g :在第n1行到n2行之间搜索word1并将其替换成word2,/g表示全局
-:n1,n2/word1/word2/gc : 在第n1行到n2行之间搜索word1并将其替换成word2,c表示替换前询问确认
+:n1,n2s/word1/word2/gc : 在第n1行到n2行之间搜索word1并将其替换成word2,c表示替换前询问确认
 :1,$s/word1/word2/g  : 在第一行到最后一行之间搜索word1并将其替换成word2
 </code></pre>
 
@@ -342,7 +342,7 @@ ctrl + w  : 窗口切换
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa -C &ldquo;&lt;a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x79;&#x6f;&#117;&#x72;&#95;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#99;&#111;&#x6d;">&#121;&#x6f;&#117;&#114;&#x5f;&#101;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;&lt;/a>&rdquo;&lt;/p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa -C &ldquo;&lt;a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#x79;&#x6f;&#x75;&#x72;&#x5f;&#101;&#x6d;&#97;&#105;&#x6c;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#x79;&#x6f;&#117;&#114;&#x5f;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;&lt;/a>&rdquo;&lt;/p>
 </span><span class='line'>
 </span><span class='line'>&lt;h1>Creates a new ssh key, using the provided email as a label&lt;/h1>
 </span><span class='line'>
@@ -385,7 +385,7 @@ ctrl + w  : 窗口切换
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T &lt;a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x67;&#105;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;&lt;/a>&lt;/p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T &lt;a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;&lt;/a>&lt;/p>
 </span><span class='line'>
 </span><span class='line'>&lt;h1>输入密码后，当看到显示下面的字符时，说明连接成功&lt;/h1>
 </span><span class='line'>

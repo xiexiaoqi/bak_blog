@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Vim - 小旋风</title>
+  <title>PHP Date()参数说明 - 小旋风</title>
   <meta name="author" content="谢小琪">
 
   
-  <meta name="description" content="Category: Vim">
+  <meta name="description" content="PHP date()函数接受两个参数： format: 必需。规定时间戳的格式。
+timestamp: 可选。规定时间戳。默认是当前的日期和时间。 format参数格式如下: a : "am" 或是 "pm" A : "AM" 或是 "PM" d : 几日，二位数字，若不足二位则前面补零; 如 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xiexiaoqi.github.ioblog/categories/vim">
+  <link rel="canonical" href="http://xiexiaoqi.github.io/blog/2014/01/11/php-date-can-shu-shuo-ming">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="小旋风" type="application/atom+xml">
@@ -64,36 +65,140 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Vim</h1>
+    
+      <h1 class="entry-title">PHP Date()参数说明</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-11T13:26:00+08:00" pubdate data-updated="true">Jan 11<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>PHP date()函数接受两个参数：</p>
 
-  
-  <h2>2014</h2>
+<pre><code>format: 必需。规定时间戳的格式。
+timestamp: 可选。规定时间戳。默认是当前的日期和时间。
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2014/01/03/vimxue-xi-bi-ji/">Vim学习笔记</a></h1>
-<time datetime="2014-01-03T17:34:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>03</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/centos/'>CentOS</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a></span>
-</footer>
+<!-- more -->
 
 
-</article>
+<p>format参数格式如下:</p>
 
+<pre><code>a : "am" 或是 "pm"  
+A : "AM" 或是 "PM"  
+d : 几日，二位数字，若不足二位则前面补零; 如: "01" 至 "31"  
+D : 星期几，三个英文字母; 如: "Fri"  
+F : 月份，英文全名; 如: "January"  
+h : 12 小时制的小时; 如: "01" 至 "12"  
+H : 24 小时制的小时; 如: "00" 至 "23"  
+g : 12 小时制的小时，不足二位不补零; 如: "1" 至 12"  
+G : 24 小时制的小时，不足二位不补零; 如: "0" 至 "23"  
+i : 分钟; 如: "00" 至 "59"  
+j : 几日，二位数字，若不足二位不补零; 如: "1" 至 "31"  
+l : 星期几，英文全名; 如: "Friday"  
+m : 月份，二位数字，若不足二位则在前面补零; 如: "01" 至 "12"  
+n : 月份，二位数字，若不足二位则不补零; 如: "1" 至 "12"  
+M : 月份，三个英文字母; 如: "Jan"  
+s : 秒; 如: "00" 至 "59"  
+S : 字尾加英文序数，二个英文字母; 如: "th"，"nd"  
+t : 指定月份的天数; 如: "28" 至 "31"  
+U : 总秒数  
+w : 数字型的星期几，如: "0" (星期日) 至 "6" (星期六)  
+Y : 年，四位数字; 如: "1999"  
+y : 年，二位数字; 如: "99"  
+z : 一年中的第几天; 如: "0" 至 "365"  
+</code></pre>
+
+<p>PHP Date()参数说明</p>
+
+<p>【完】</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">谢小琪</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-11T13:26:00+08:00" pubdate data-updated="true">Jan 11<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/01/03/vimxue-xi-bi-ji/" title="Previous Post: Vim学习笔记">&laquo; Vim学习笔记</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title=""></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xiexiaoqi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
 
 
 </div>

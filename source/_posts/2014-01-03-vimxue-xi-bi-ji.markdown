@@ -55,7 +55,7 @@ categories: [Linux, CentOS, Vim]
 
     :s/word1/word2/gc : 查找与替换
     :n1,n2s/word1/word2/g :在第n1行到n2行之间搜索word1并将其替换成word2,/g表示全局
-    :n1,n2/word1/word2/gc : 在第n1行到n2行之间搜索word1并将其替换成word2,c表示替换前询问确认
+    :n1,n2s/word1/word2/gc : 在第n1行到n2行之间搜索word1并将其替换成word2,c表示替换前询问确认
     :1,$s/word1/word2/g  : 在第一行到最后一行之间搜索word1并将其替换成word2
     
 

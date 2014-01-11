@@ -4,7 +4,7 @@
   <title><![CDATA[小旋风]]></title>
   <link href="http://xiexiaoqi.github.io/atom.xml" rel="self"/>
   <link href="http://xiexiaoqi.github.io/"/>
-  <updated>2014-01-03T17:49:11+08:00</updated>
+  <updated>2014-01-11T14:05:43+08:00</updated>
   <id>http://xiexiaoqi.github.io/</id>
   <author>
     <name><![CDATA[谢小琪]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP Date()参数说明]]></title>
+    <link href="http://xiexiaoqi.github.io/blog/2014/01/11/php-date-can-shu-shuo-ming/"/>
+    <updated>2014-01-11T13:26:00+08:00</updated>
+    <id>http://xiexiaoqi.github.io/blog/2014/01/11/php-date-can-shu-shuo-ming</id>
+    <content type="html"><![CDATA[<p>PHP date()函数接受两个参数：</p>
+
+<pre><code>format: 必需。规定时间戳的格式。
+timestamp: 可选。规定时间戳。默认是当前的日期和时间。
+</code></pre>
+
+<!-- more -->
+
+
+<p>format参数格式如下:</p>
+
+<pre><code>a : "am" 或是 "pm"  
+A : "AM" 或是 "PM"  
+d : 几日，二位数字，若不足二位则前面补零; 如: "01" 至 "31"  
+D : 星期几，三个英文字母; 如: "Fri"  
+F : 月份，英文全名; 如: "January"  
+h : 12 小时制的小时; 如: "01" 至 "12"  
+H : 24 小时制的小时; 如: "00" 至 "23"  
+g : 12 小时制的小时，不足二位不补零; 如: "1" 至 12"  
+G : 24 小时制的小时，不足二位不补零; 如: "0" 至 "23"  
+i : 分钟; 如: "00" 至 "59"  
+j : 几日，二位数字，若不足二位不补零; 如: "1" 至 "31"  
+l : 星期几，英文全名; 如: "Friday"  
+m : 月份，二位数字，若不足二位则在前面补零; 如: "01" 至 "12"  
+n : 月份，二位数字，若不足二位则不补零; 如: "1" 至 "12"  
+M : 月份，三个英文字母; 如: "Jan"  
+s : 秒; 如: "00" 至 "59"  
+S : 字尾加英文序数，二个英文字母; 如: "th"，"nd"  
+t : 指定月份的天数; 如: "28" 至 "31"  
+U : 总秒数  
+w : 数字型的星期几，如: "0" (星期日) 至 "6" (星期六)  
+Y : 年，四位数字; 如: "1999"  
+y : 年，二位数字; 如: "99"  
+z : 一年中的第几天; 如: "0" 至 "365"  
+</code></pre>
+
+<p>PHP Date()参数说明</p>
+
+<p>【完】</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vim学习笔记]]></title>
@@ -71,7 +118,7 @@ N     : 向相反方向搜索
 
 <pre><code>:s/word1/word2/gc : 查找与替换
 :n1,n2s/word1/word2/g :在第n1行到n2行之间搜索word1并将其替换成word2,/g表示全局
-:n1,n2/word1/word2/gc : 在第n1行到n2行之间搜索word1并将其替换成word2,c表示替换前询问确认
+:n1,n2s/word1/word2/gc : 在第n1行到n2行之间搜索word1并将其替换成word2,c表示替换前询问确认
 :1,$s/word1/word2/g  : 在第一行到最后一行之间搜索word1并将其替换成word2
 </code></pre>
 
